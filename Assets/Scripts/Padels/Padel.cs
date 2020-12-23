@@ -6,6 +6,7 @@ public class Padel : MonoBehaviour
 {
     public GameObject m_anker;
     public Quaternion m_startingRotation;
+    public int m_padelindex;
 
     void Awake()
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
 
     public class InputKeys //easier to change to the input in unity

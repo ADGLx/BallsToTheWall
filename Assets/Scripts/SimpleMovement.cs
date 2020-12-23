@@ -6,6 +6,7 @@ public class SimpleMovement : MonoBehaviour
 {
     public InputManager input;
     public GameObject m_anker;
+    public Padel m_padel;
     private Rigidbody2D rb;
     public float m_movingSpeed = 0.0001f;
     public int DividedBy = 3; //This needs to be moved to the GameState Script
@@ -36,11 +37,8 @@ public class SimpleMovement : MonoBehaviour
 
     private void Movement()
     {
-        float zRot = m_anker.transform.rotation.eulerAngles.z + input.horizontal * Time.deltaTime * m_movingSpeed;
-        zRot = zRot > 180 ? zRot - 360 : zRot; //just an if
-        zRot = Mathf.Clamp(zRot, -(180 / DividedBy), 180 / DividedBy);
-        m_anker.transform.rotation = Quaternion.Euler(m_anker.transform.rotation.eulerAngles.x, m_anker.transform.rotation.eulerAngles.y,zRot );
-        
-    } 
+        gameObject.transform.RotateAround(m_anker.transform.localPosition, Vector3.forward, input.horizontal * Time.deltaTime * m_movingSpeed);
+    }
+    
 
 }

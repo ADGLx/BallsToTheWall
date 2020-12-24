@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class brickManager : MonoBehaviour
 {
 
     public bool desi;
+   
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        desi = false;
     }
 
     // Update is called once per frame
@@ -49,5 +55,12 @@ public class brickManager : MonoBehaviour
         }
         
     }
+
+
+
+
+
+
+
 
 }

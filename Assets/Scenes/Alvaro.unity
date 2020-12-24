@@ -712,9 +712,10 @@ GameObject:
   m_Component:
   - component: {fileID: 727698501}
   - component: {fileID: 727698502}
+  - component: {fileID: 727698503}
   m_Layer: 0
-  m_Name: Player2Collider
-  m_TagString: Boundary
+  m_Name: Player3Collider
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -731,7 +732,7 @@ Transform:
   m_LocalScale: {x: -3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1330782380}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &727698502
 PolygonCollider2D:
@@ -778,6 +779,20 @@ PolygonCollider2D:
       - {x: -1.25, y: -1.25}
       - {x: 1.25, y: -1.25}
       - {x: 1.25, y: 1.25}
+--- !u!114 &727698503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727698500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7bbf9e23109ec41aaff335668732f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!1 &1012253400
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,9 +803,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1012253401}
   - component: {fileID: 1012253402}
+  - component: {fileID: 1012253403}
   m_Layer: 0
-  m_Name: Player1Collider
-  m_TagString: Boundary
+  m_Name: Player2Collider
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -807,7 +823,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1330782380}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1012253402
 PolygonCollider2D:
@@ -854,6 +870,20 @@ PolygonCollider2D:
       - {x: -1.25, y: -1.25}
       - {x: 1.25, y: -1.25}
       - {x: 1.25, y: 1.25}
+--- !u!114 &1012253403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012253400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7bbf9e23109ec41aaff335668732f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!1 &1183055660
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +1007,7 @@ GameObject:
   - component: {fileID: 1330782380}
   - component: {fileID: 1330782379}
   - component: {fileID: 1330782381}
+  - component: {fileID: 1330782382}
   m_Layer: 0
   m_Name: Colliders
   m_TagString: Boundary
@@ -1016,10 +1047,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1706994179}
   - {fileID: 1012253401}
   - {fileID: 727698501}
   - {fileID: 1962243952}
-  - {fileID: 1706994179}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1035,6 +1066,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a33c6c0dc216146bce80379609c2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 1
+  syncInterval: 1
+  allBoundaries:
+  - {fileID: 1706994180}
+  - {fileID: 1012253402}
+  - {fileID: 727698502}
+  - {fileID: 1962243953}
+--- !u!114 &1330782382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330782378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 3046600073
+  serverOnly: 1
+  m_AssetId: 
+  hasSpawned: 0
 --- !u!1 &1420965261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,9 +1247,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1706994179}
   - component: {fileID: 1706994180}
+  - component: {fileID: 1706994181}
   m_Layer: 0
-  m_Name: Player4Collider
-  m_TagString: Boundary
+  m_Name: Player1Collider
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1212,7 +1267,7 @@ Transform:
   m_LocalScale: {x: -3, y: -3, z: 3}
   m_Children: []
   m_Father: {fileID: 1330782380}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1706994180
 PolygonCollider2D:
@@ -1259,6 +1314,20 @@ PolygonCollider2D:
       - {x: -1.25, y: -1.25}
       - {x: 1.25, y: -1.25}
       - {x: 1.25, y: 1.25}
+--- !u!114 &1706994181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706994178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7bbf9e23109ec41aaff335668732f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!1 &1872802647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,9 +1515,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1962243952}
   - component: {fileID: 1962243953}
+  - component: {fileID: 1962243954}
   m_Layer: 0
-  m_Name: Player3Collider
-  m_TagString: Boundary
+  m_Name: Player4Collider
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1465,7 +1535,7 @@ Transform:
   m_LocalScale: {x: 3, y: -3, z: 3}
   m_Children: []
   m_Father: {fileID: 1330782380}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &1962243953
 PolygonCollider2D:
@@ -1512,6 +1582,20 @@ PolygonCollider2D:
       - {x: -1.25, y: -1.25}
       - {x: 1.25, y: -1.25}
       - {x: 1.25, y: 1.25}
+--- !u!114 &1962243954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962243951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7bbf9e23109ec41aaff335668732f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!1 &2014959877
 GameObject:
   m_ObjectHideFlags: 0

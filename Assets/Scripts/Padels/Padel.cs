@@ -11,6 +11,8 @@ public class Padel : NetworkBehaviour
     public GameObject m_ball;
     public GameObject m_intantiatedBall;
 
+
+
     void Awake()
     {
         gameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, m_ankerPosition - gameObject.transform.position);
@@ -21,6 +23,8 @@ public class Padel : NetworkBehaviour
     {
         m_startingRotation = gameObject.transform.rotation;
         SpawnBall();
+
+
     }
 
     // Update is called once per frame
@@ -54,7 +58,15 @@ public class Padel : NetworkBehaviour
         NetworkServer.Spawn(m_intantiatedBall);
         var ballComp = m_intantiatedBall.GetComponent<Ball>();
 
+
+
         ballComp.m_instigator = this;
         ballComp.m_isAttached = true;
     }
+
+    public void LoseGame() //Not entirely sure if it should be a command or what
+    {
+        Destroy(this.gameObject); //We can have here more info 
+    }
+
 }

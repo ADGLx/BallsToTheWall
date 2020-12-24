@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
 
     public class InputKeys //easier to change to the input in unity
@@ -21,15 +22,24 @@ public class PlayerControl : MonoBehaviour
 
     void GetInput()
     {
-        
         horizontal = Input.GetAxis(Key.HORIZONTAL);
-        space = Input.GetButton(Key.SPACE);
-
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        GetInput();
+        if (!isLocalPlayer)
+        { return; }
+
+        var axisHorizontal = Input.GetAxis(Key.HORIZONTAL);
+        if (axisHorizontal != 0)
+        {
+            gameObject.GetComponent<SimpleMovement>().HandleMoveHorizontal(axisHorizontal);
+        }
+
+        if (Input.GetButton(Key.SPACE))
+        {
+            gameObject.GetComponent<Padel>().FireBall();
+        }
     }
 }

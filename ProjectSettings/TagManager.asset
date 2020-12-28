@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Wall
   - mysteryBrick
+  - Ball
+  - Boundary
   - normalBrick
   layers:
   - Default

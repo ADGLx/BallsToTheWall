@@ -13,15 +13,20 @@ public class Ball : NetworkBehaviour
     [SyncVar]
     public bool m_isActive = true;
 
+    public float m_velocitylimit = 5f;
+    private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
+        rb = gameObject.GetComponent<Rigidbody2D>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (!m_isActive) //should be active both in sv and client
             this.gameObject.SetActive(false);
 
@@ -37,13 +42,25 @@ public class Ball : NetworkBehaviour
         {
             //this is happening now, 
         }
-
-   
     
+    }
+
+    private void FixedUpdate()
+    {
+        LimitBallVelocity();
     }
 
     public void Fire()
     {
-        gameObject.GetComponent<Rigidbody2D>().velocity = m_startingVelocity * new Vector2(1, 1);
+        //This points it towards the middle always 
+        rb.velocity = m_startingVelocity * (new Vector2(this.transform.position.x,this.transform.position.y) - Vector2.zero);
+    }
+
+    public void LimitBallVelocity()
+    {
+            if(rb.velocity.magnitude > m_velocitylimit)
+            rb.AddForce(new Vector2(-rb.velocity.x, -rb.velocity.y)); //This kinda woks 
+  
+
     }
 }

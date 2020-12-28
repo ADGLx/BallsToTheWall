@@ -53,9 +53,11 @@ public class SimpleMovement : MonoBehaviour
         gameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, m_ankerPosition - gameObject.transform.position);
 
         //Clamping the movement at (0,-1) and (1,0) this is the old method to 
-        Vector3 pos = this.transform.position;
-        pos.x = Mathf.Clamp(pos.x, -m_radius, m_radius);
-        pos.y = Mathf.Clamp(pos.y, -m_radius, m_radius);
+        Vector2 pos = this.transform.position; //Vector clampinng
+        pos = pos.normalized * m_radius;
+        
+       // pos.x = Mathf.Clamp(pos.x, -m_radius, m_radius);
+      //  pos.y = Mathf.Clamp(pos.y, -m_radius, m_radius);
         transform.position = pos;
 
         /*

@@ -5,6 +5,26 @@ using Mirror;
 
 public class PlayerController : NetworkBehaviour
 {
+    void Start()
+    {
+        if (!isLocalPlayer)
+        { return; }
+    }
+
+    public override void OnStartClient()
+    {
+        GameState.AddPlayer(gameObject);
+        base.OnStartClient();
+    }
+
+    public override void OnStartLocalPlayer()
+    {
+        base.OnStartLocalPlayer();
+        if (!isLocalPlayer)
+        { return; }
+
+        GameState.AllignCameraWithPlayer(gameObject);
+    }
 
     public class InputKeys //easier to change to the input in unity
     {

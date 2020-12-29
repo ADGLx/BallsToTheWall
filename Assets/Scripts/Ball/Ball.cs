@@ -33,16 +33,11 @@ public class Ball : NetworkBehaviour
         if (!m_isAttached)
         { return;  }
 
-        if(isServer)//only checks this if its the sv
-        {
-            var distanceToPadel = gameObject.GetComponent<CircleCollider2D>().radius + m_instigator.GetComponent<BoxCollider2D>().size.y / 2;
+        if(!isServer)//only checks this if its the sv
+        { return; }
 
-            gameObject.transform.position = m_instigator.transform.position + distanceToPadel * m_instigator.GetVectorToCenter();
-        } else
-        {
-            //this is happening now, 
-        }
-    
+        var distanceToPadel = GetComponent<CircleCollider2D>().radius + m_instigator.GetComponent<BoxCollider2D>().size.y / 2;
+        gameObject.transform.position = m_instigator.transform.position + distanceToPadel * m_instigator.GetVectorToCenter();
     }
 
     private void FixedUpdate()

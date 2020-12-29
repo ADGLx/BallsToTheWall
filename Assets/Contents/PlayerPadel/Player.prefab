@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 4905443213799069585}
   - component: {fileID: 4905443213799069584}
   - component: {fileID: 4905443213799069586}
+  - component: {fileID: 7630614258409365288}
   - component: {fileID: 4905443213799069587}
   - component: {fileID: 9175573762446174179}
   m_Layer: 0
@@ -182,6 +183,8 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   m_startingRotation: {x: 0, y: 0, z: 0, w: 0}
+  PlayerIndex: 0
+  m_isActive: 1
   m_ball: {fileID: 717381151662654041, guid: ec8a0071f805ee9439a9761b7294205b, type: 3}
   m_intantiatedBall: {fileID: 0}
 --- !u!114 &4905443213799069584
@@ -216,6 +219,20 @@ MonoBehaviour:
   syncInterval: 0.1
   horizontal: 0
   space: 0
+--- !u!114 &7630614258409365288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905443213799069588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ffb9773768095d4ca3eb177c5b6cbea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 0
+  m_activePower: 0
 --- !u!114 &4905443213799069587
 MonoBehaviour:
   m_ObjectHideFlags: 0

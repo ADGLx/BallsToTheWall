@@ -12,6 +12,9 @@ public class Padel : NetworkBehaviour
     [SyncVar]
     public bool m_isActive = true;
 
+    [SyncVar (hook = nameof(SetLength))] //this calls SetLength when the variable changes
+    public float m_padelLength = 1f;
+
     public GameObject m_ball;
     public GameObject m_intantiatedBall;
 
@@ -27,9 +30,7 @@ public class Padel : NetworkBehaviour
     {
         m_startingRotation = gameObject.transform.rotation;
         SpawnBall();
-        CmdGetBoundary();
-
-
+        CmdInstantiatePlayer();
     }
 
     // Update is called once per frame
@@ -37,6 +38,7 @@ public class Padel : NetworkBehaviour
     {
         if (!m_isActive)
             this.gameObject.SetActive(false);
+
     }
 
     public Vector3 GetVectorToCenter()
@@ -72,7 +74,7 @@ public class Padel : NetworkBehaviour
     }
 
     [Command]
-    void CmdGetBoundary()
+    void CmdInstantiatePlayer()
     {
         GameObject BoundaryH = GameObject.FindGameObjectWithTag("Boundary");
 
@@ -84,8 +86,15 @@ public class Padel : NetworkBehaviour
 
         BoundaryH.GetComponent<BoundaryManager>().AddPlayer(this);
 
+        //just letting the power ups manager that the player has been initialized
+      GameObject.FindGameObjectWithTag("PowerUpsManager").GetComponent<Powers_Manager>().AddPlayer(this);
+
 
     }
 
+    void SetLength(float oldV, float newV)
+    {
+        this.transform.localScale = new Vector2(newV, 1);
+    }
 
 }

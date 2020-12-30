@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8541002527946444622}
   - component: {fileID: 8541002527946444623}
-  - component: {fileID: 8541002527946444621}
-  - component: {fileID: 6452371932040032057}
+  - component: {fileID: 8355886450782968683}
+  - component: {fileID: 8223307555635863471}
   m_Layer: 0
   m_Name: blueNorm
   m_TagString: mysteryBrick
@@ -73,18 +73,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1609c504719a4ff499f2d559b0a60294, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87fac8e4f2bafbd468b0e69c018ecb92, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.568671, y: 0.30712703}
+  m_Size: {x: 0.55, y: 0.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8541002527946444621
+--- !u!114 &8355886450782968683
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,11 +93,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8541002527946444722}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74934be6c07a77040ab0fc1a0cb70c39, type: 3}
+  m_Script: {fileID: 11500000, guid: 326bc210c73cfc14aa16ef2eb9608bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desi: 1
---- !u!60 &6452371932040032057
+  desi: 0
+--- !u!60 &8223307555635863471
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,7 +106,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 8541002527946444722}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 8efb7f7c15fa480489a9624074fad5c5, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -115,20 +115,21 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.55, y: 0.31}
-    newSize: {x: 0.568671, y: 0.30712703}
+    newSize: {x: 0.55, y: 0.31}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.0022310093, y: 0.1576694}
-      - {x: -0.13519692, y: 0.13684717}
-      - {x: -0.24199492, y: 0.08179799}
-      - {x: -0.275, y: 0.052758988}
-      - {x: -0.096083134, y: -0.15665033}
-      - {x: -0.009281248, y: -0.12302524}
-      - {x: 0.09374357, y: -0.15169945}
-      - {x: 0.19743805, y: -0.03229025}
-      - {x: 0.2799508, y: 0.05374363}
-      - {x: 0.16169946, y: 0.12694556}
+    - - {x: 0.08175853, y: 0.15498266}
+      - {x: -0.08642697, y: 0.1505279}
+      - {x: -0.27649078, y: 0.057732046}
+      - {x: -0.25263923, y: 0.020342257}
+      - {x: -0.1006497, y: -0.15052785}
+      - {x: -0.038367182, y: -0.12561862}
+      - {x: 0.03861673, y: -0.12673712}
+      - {x: 0.0932599, y: -0.15201855}
+      - {x: 0.19897345, y: -0.021954775}
+      - {x: 0.27649075, y: 0.05475056}
+      - {x: 0.1381671, y: 0.13263923}

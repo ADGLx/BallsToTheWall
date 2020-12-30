@@ -9,6 +9,7 @@ TagManager:
   - Ball
   - Boundary
   - PowerUpsManager
+  - normalBrick
   layers:
   - Default
   - TransparentFX

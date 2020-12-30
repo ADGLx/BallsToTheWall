@@ -5,6 +5,7 @@ using Mirror;
 public class Powers_Manager : NetworkBehaviour
 {
     private List<Padel> m_allplayers = new List<Padel>();
+
     [Header("Enlarger Characteristics")]
     public float enlargerPercentAdd = 0.25f;
     public float enlargerTime = 5f;

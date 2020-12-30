@@ -22,7 +22,7 @@ public class brickManager : MonoBehaviour
     {
         if(gameObject.tag == "mysteryBrick")
         {
-            if (collision.gameObject.tag == "Player")
+            if (collision.gameObject.tag == "Ball")
             {
                 //do destroy just set as inactive
                 gameObject.SetActive(desi);
@@ -36,7 +36,7 @@ public class brickManager : MonoBehaviour
         }
         else if (gameObject.tag == "normalBrick")
         {
-            if (collision.gameObject.tag == "Player")
+            if (collision.gameObject.tag == "Ball")
             {
                 //do destroy just set as inactive
                 gameObject.SetActive(desi);

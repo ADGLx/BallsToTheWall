@@ -17,8 +17,7 @@ public class Powers_Manager : NetworkBehaviour
 
     private void Start()
     {
-        
-        StartCoroutine(PlayWithDelay());
+
     }
 
 

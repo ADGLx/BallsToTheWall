@@ -142,7 +142,7 @@ MonoBehaviour:
   m_isAttached: 0
   m_startingVelocity: 1
   m_isActive: 1
-  m_velocitylimit: 10
+  m_velocitylimit: 4.5
 --- !u!114 &8984890159165081701
 MonoBehaviour:
   m_ObjectHideFlags: 0

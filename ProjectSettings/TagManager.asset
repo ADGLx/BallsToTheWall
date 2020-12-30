@@ -8,6 +8,7 @@ TagManager:
   - mysteryBrick
   - Ball
   - Boundary
+  - PowerUpsManager
   layers:
   - Default
   - TransparentFX

@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class SimpleMovement : MonoBehaviour
+public class SimpleMovement : NetworkBehaviour
 {
     private PlayerController m_playerController;
     private Vector3 m_ankerPosition = new Vector3(0, 0, 0);
     private Padel m_padel;
     private Rigidbody2D rb;
+    [SyncVar]
     public float m_movingSpeed = 0.0001f;
     public int DividedBy = 4; //This needs to be moved to the GameState Script
     public float startingAngle = 45;

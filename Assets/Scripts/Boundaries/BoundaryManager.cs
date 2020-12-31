@@ -60,6 +60,7 @@ public class BoundaryManager : NetworkBehaviour
         p.m_isActive = false;
         ball.m_isActive = false;
 
+        Debug.Log(col.gameObject.name + " lost");
       
       
     }

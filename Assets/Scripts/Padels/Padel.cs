@@ -19,7 +19,6 @@ public class Padel : NetworkBehaviour
     public GameObject m_intantiatedBall;
 
 
-
     void Awake()
     {
         gameObject.transform.rotation = Quaternion.LookRotation(Vector3.forward, m_ankerPosition - gameObject.transform.position);
@@ -31,6 +30,7 @@ public class Padel : NetworkBehaviour
         m_startingRotation = gameObject.transform.rotation;
         SpawnBall();
         CmdInstantiatePlayer();
+
     }
 
     // Update is called once per frame
@@ -86,8 +86,8 @@ public class Padel : NetworkBehaviour
 
         BoundaryH.GetComponent<BoundaryManager>().AddPlayer(this);
 
-        //just letting the power ups manager that the player has been initialized
-      GameObject.FindGameObjectWithTag("PowerUpsManager").GetComponent<Powers_Manager>().AddPlayer(this);
+        //Removing the power ups manager
+   //   GameObject.FindGameObjectWithTag("PowerUpsManager").GetComponent<Powers_Manager>().AddPlayer(this);
 
 
     }

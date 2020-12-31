@@ -1,53 +1,78 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class brickManager : MonoBehaviour
+using Mirror;
+public class brickManager : NetworkBehaviour
 {
-
-    public bool desi;
+    public Type t;
+    private BaseBooster baseBooster;
+    public BoostersTypes m_booster = BoostersTypes.None;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        InitializeBoosterType();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(gameObject.tag == "mysteryBrick")
+        if(gameObject.tag == "mysteryBrick" && collision.gameObject.tag == "Ball")
         {
-            if (collision.gameObject.tag == "Ball")
-            {
+
                 //do destroy just set as inactive
-                gameObject.SetActive(desi);
+                gameObject.SetActive(false);
 
                 // Trigger any animations 
 
 
-                //Award the player an item
-                Debug.Log("Mystery Brick hit");
-            }
+                //Award the player The boost
+                CmdApplyBooster(collision.gameObject.GetComponent<Ball>().m_instigator);
+             //   Debug.Log("Mystery Brick hit");
         }
-        else if (gameObject.tag == "normalBrick")
+        else if (gameObject.tag == "normalBrick" && collision.gameObject.tag == "Ball")
         {
-            if (collision.gameObject.tag == "Ball")
-            {
+
                 //do destroy just set as inactive
-                gameObject.SetActive(desi);
+                gameObject.SetActive(true);
 
                 // Trigger any animations
 
 
-                Debug.Log("Brick hit");
-            }
+           //     Debug.Log("Brick hit");
+
         }
         
     }
 
+    //Pairs the enums with the actual class method, I dont like the way it works but unity does not support the drag and drop in the inspector)
+    void InitializeBoosterType()
+    {
+        switch(m_booster)
+        {
+            case BoostersTypes.SpeedBoost:
+                baseBooster = new SpeedBooster();
+                break;
+
+            case BoostersTypes.LengthBoost:
+                baseBooster = new LengthBooster();
+                break;
+            
+            case BoostersTypes.None:
+                baseBooster = null;
+                break;
+
+            default:
+                Debug.LogWarning("Remember to add a case in this switch!");
+                baseBooster = null;
+                break;
+        }
+    }
+  
+    [Server]
+    void CmdApplyBooster(Padel p)
+    {
+        baseBooster.ApplyBooster(p);
+    }
 }
+
+public enum BoostersTypes {SpeedBoost, LengthBoost, None };

@@ -184,6 +184,7 @@ MonoBehaviour:
   m_startingRotation: {x: 0, y: 0, z: 0, w: 0}
   PlayerIndex: 0
   m_isActive: 1
+  m_padelLength: 1
   m_ball: {fileID: 717381151662654041, guid: ec8a0071f805ee9439a9761b7294205b, type: 3}
   m_intantiatedBall: {fileID: 0}
 --- !u!114 &4218361048146780530
@@ -198,6 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54dc2fc483fa2d343829ddb8724aef7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   m_movingSpeed: 200
   DividedBy: 0
   startingAngle: 45
@@ -216,7 +219,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  m_gameState: {fileID: 0}
   horizontal: 0
   space: 0
 --- !u!114 &997459326969722496

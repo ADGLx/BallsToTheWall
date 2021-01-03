@@ -7,7 +7,7 @@ public class Padel : NetworkBehaviour
 {
     private Vector3 m_ankerPosition = Vector3.zero;
     public Quaternion m_startingRotation;
-   [SyncVar] //Keeps this in sync with the server
+    [SyncVar] //Keeps this in sync with the server
     public int PlayerIndex;
     [SyncVar]
     public bool m_isActive = true;
@@ -29,7 +29,6 @@ public class Padel : NetworkBehaviour
     {
         m_startingRotation = gameObject.transform.rotation;
         SpawnBall();
-        CmdInstantiatePlayer();
 
     }
 
@@ -71,25 +70,6 @@ public class Padel : NetworkBehaviour
 
         ballComp.m_instigator = this;
         ballComp.m_isAttached = true;
-    }
-
-    [Command]
-    void CmdInstantiatePlayer()
-    {
-        GameObject BoundaryH = GameObject.FindGameObjectWithTag("Boundary");
-
-        if (BoundaryH == null)
-        {
-            Debug.LogError("Boundary Not Found");
-            return;
-        }
-
-        BoundaryH.GetComponent<BoundaryManager>().AddPlayer(this);
-
-        //Removing the power ups manager
-   //   GameObject.FindGameObjectWithTag("PowerUpsManager").GetComponent<Powers_Manager>().AddPlayer(this);
-
-
     }
 
     void SetLength(float oldV, float newV)

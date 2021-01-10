@@ -18,34 +18,34 @@ public class BrickManager : NetworkBehaviour
         GetComponent<Collider2D>().enabled = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(gameObject.tag == "mysteryBrick" && collision.gameObject.tag == "Ball")
+        if (collider.tag != "Ball") return;
+
+        //Award the player The boost
+        var ballComponent = collider.GetComponent<Ball>();
+        if (ballComponent == null) return;
+
+        CmdApplyBooster(ballComponent.m_instigator, ballComponent);
+        //   Debug.Log("Mystery Brick hit");
+
+        if (ballComponent.m_canPenetrate)
         {
-
-            //do destroy just set as inactive
-            m_isActive = false;
-
-            // Trigger any animations 
-
-
-            //Award the player The boost
-            CmdApplyBooster(collision.gameObject.GetComponent<Ball>().m_instigator);
-            //   Debug.Log("Mystery Brick hit");
+            NetworkServer.Destroy(gameObject);
+            return;
         }
-        else if (gameObject.tag == "normalBrick" && collision.gameObject.tag == "Ball")
-        {
 
-            //do destroy just set as inactive
-            m_isActive = false;
+        var ballRigidBody = collider.GetComponent<Rigidbody2D>();
+        if (ballRigidBody == null) return;
 
-            // Trigger any animations
+        var colliderBrick = GetComponent<Collider2D>();
+        RaycastHit2D[] hits = new RaycastHit2D[1];
+        int hitAmount = colliderBrick.Raycast(ballRigidBody.position, hits);
+        if (hitAmount == 0) return;
 
+        ballRigidBody.velocity = Vector2.Reflect(ballRigidBody.velocity, hits[0].normal);
 
-            //     Debug.Log("Brick hit");
-
-        }
-        
+        NetworkServer.Destroy(gameObject);
     }
 
     private void OnActiveChanged(bool isPreviouslyActive, bool isCurrentActive)
@@ -54,8 +54,10 @@ public class BrickManager : NetworkBehaviour
     }
   
     [Server]
-    void CmdApplyBooster(Padel p)
+    void CmdApplyBooster(Padel p, Ball triggeredBall)
     {
-        m_booster.ApplyBooster(p);
+        if (m_booster == null) return;
+
+        m_booster.ApplyBooster(p, triggeredBall);
     }
 }

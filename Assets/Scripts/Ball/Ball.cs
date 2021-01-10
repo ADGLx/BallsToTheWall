@@ -6,6 +6,8 @@ using Mirror;
 public class Ball : NetworkBehaviour
 {
     public Padel m_instigator;
+    public bool m_canPenetrate = false;
+
     [SyncVar]
     public bool m_isAttached = false;
     [SyncVar]
@@ -31,14 +33,15 @@ public class Ball : NetworkBehaviour
         if (!m_isActive) //should be active both in sv and client
             this.gameObject.SetActive(false);
 
-        if (!m_isAttached)
-        { return;  }
+        if (!isServer) return;
 
-        if(!isServer)//only checks this if its the sv
-        { return; }
+        if (m_instigator == null) return;
 
-        var distanceToPadel = GetComponent<CircleCollider2D>().radius + m_instigator.GetComponent<BoxCollider2D>().size.y / 2;
-        gameObject.transform.position = m_instigator.transform.position + distanceToPadel * m_instigator.GetVectorToCenter();
+        if (m_isAttached)
+        {
+            var distanceToPadel = GetComponent<CircleCollider2D>().radius + m_instigator.GetComponent<BoxCollider2D>().size.y / 2;
+            gameObject.transform.position = m_instigator.transform.position + distanceToPadel * m_instigator.GetVectorToCenter();
+        }
     }
 
     private void FixedUpdate()
@@ -49,7 +52,7 @@ public class Ball : NetworkBehaviour
     public void Fire()
     {
         //This points it towards the middle always 
-        rb.velocity = m_startingVelocity * (new Vector2(this.transform.position.x,this.transform.position.y) - Vector2.zero);
+        rb.velocity = m_startingVelocity * (Vector2.zero - new Vector2(transform.position.x, transform.position.y));
     }
 
     public void LimitBallVelocity()

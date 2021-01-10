@@ -6,7 +6,7 @@ public class SpeedBooster : BaseBooster
 {
     public float speedPercentIncrease = 0.25f;
     private float OriginalSpeed;
-    override public void ApplyBooster(Padel curPadel)
+    override public void ApplyBooster(Padel curPadel, Ball triggeredBall = null)
     {
         SimpleMovement c = curPadel.GetComponent<SimpleMovement>();
         OriginalSpeed = c.m_movingSpeed;

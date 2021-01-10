@@ -121,9 +121,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.017006725, y: 0.02818036}
+  m_Offset: {x: 0.012234926, y: 0.025693297}
   serializedVersion: 2
-  m_Radius: 0.23110619
+  m_Radius: 0.21764767
 --- !u!114 &6951359030458819719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   syncInterval: 0
   m_instigator: {fileID: 0}
   m_isAttached: 0
-  m_startingVelocity: 1
+  m_startingVelocity: -1
   m_isActive: 1
   m_velocitylimit: 4.5
 --- !u!114 &8984890159165081701

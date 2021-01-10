@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class BaseBooster: MonoBehaviour //This defines the Booster template class per say
 {
-    public abstract void ApplyBooster(Padel currentPadel);
+    public abstract void ApplyBooster(Padel currentPadel, Ball triggeredBall = null);
     
 
 

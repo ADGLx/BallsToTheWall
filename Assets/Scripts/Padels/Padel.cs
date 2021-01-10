@@ -9,7 +9,8 @@ public class Padel : NetworkBehaviour
     public Quaternion m_startingRotation;
     [SyncVar] //Keeps this in sync with the server
     public int PlayerIndex;
-    [SyncVar]
+
+    [SyncVar(hook = nameof(OnPadelActivityChanged))]
     public bool m_isActive = true;
 
     [SyncVar (hook = nameof(SetLength))] //this calls SetLength when the variable changes
@@ -32,12 +33,10 @@ public class Padel : NetworkBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnStopClient()
     {
-        if (!m_isActive)
-            this.gameObject.SetActive(false);
-
+        if (!isServer) return;
+        ServerCleanup();
     }
 
     public Vector3 GetVectorToCenter()
@@ -66,10 +65,26 @@ public class Padel : NetworkBehaviour
         NetworkServer.Spawn(m_intantiatedBall);
         var ballComp = m_intantiatedBall.GetComponent<Ball>();
 
-
-
         ballComp.m_instigator = this;
         ballComp.m_isAttached = true;
+    }
+
+    [Server]
+    private void ServerCleanup()
+    {
+        if (m_intantiatedBall == null)
+        { return; }
+
+        NetworkServer.Destroy(m_intantiatedBall);
+    }
+
+    private void OnPadelActivityChanged(bool activePrevious, bool activeCurrent)
+    {
+        if (activeCurrent) return;
+
+        this.gameObject.SetActive(false);
+
+        ServerCleanup();
     }
 
     void SetLength(float oldV, float newV)

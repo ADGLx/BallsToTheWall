@@ -18,7 +18,7 @@ public class BoundaryManager : NetworkBehaviour
     void CmdLose(Padel padel, Ball ball)
     {
         GetComponent<Collider2D>().isTrigger = false;
-
+        if (padel == null) return;
         //This turns off the padels on the client and the sv
         padel.m_isActive = false;
         ball.m_isActive = false;
@@ -32,5 +32,11 @@ public class BoundaryManager : NetworkBehaviour
 
         m_defendingPadel = defendingPadel;
         GetComponent<Collider2D>().isTrigger = true;
+    }
+
+    public void Cleanup()
+    {
+        m_defendingPadel = null;
+        GetComponent<Collider2D>().isTrigger = false;
     }
 }

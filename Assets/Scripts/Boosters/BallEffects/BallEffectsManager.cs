@@ -5,7 +5,7 @@ using Mirror;
 
 public class BallEffectsManager : NetworkBehaviour
 {
-    private List<BaseBallEffects> m_ballEffects = new List<BaseBallEffects>();
+    public List<BaseBallEffects> m_ballEffects = new List<BaseBallEffects>();
 
     public override void OnStartLocalPlayer()
     {
@@ -24,20 +24,20 @@ public class BallEffectsManager : NetworkBehaviour
         m_ballEffects.Clear();
     }
 
-    private void ResetBallToDefault()
-    {
-        GetComponent<Ball>().m_canPenetrate = false;
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void ReplaceBallEffect(Ball ball, Padel prevInstigator)
     {
-        if (collision.gameObject.tag != "Ball") return;
-
-        ResetBallToDefault();
+        if(prevInstigator != null)
+        {
+            foreach (var ballEffect in prevInstigator.GetComponent<BallEffectsManager>().m_ballEffects)
+            {
+                ballEffect.RevertBallEffect(ball);
+            }
+        }
 
         foreach (var ballEffect in m_ballEffects)
         {
-            ballEffect.ApplyBallEffect(collision.gameObject.GetComponent<Ball>());
+            ballEffect.ApplyBallEffect(ball);
         }
     }
 }

@@ -5,4 +5,6 @@ using UnityEngine;
 public abstract class BaseBallEffects : MonoBehaviour
 {
     public abstract void ApplyBallEffect(Ball ball);
+
+    public abstract void RevertBallEffect(Ball ball);
 }

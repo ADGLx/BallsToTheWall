@@ -8,4 +8,9 @@ public class PenetrateBallEffect : BaseBallEffects
     {
         ball.m_canPenetrate = true;
     }
+    public override void RevertBallEffect(Ball ball)
+    {
+        ball.m_canPenetrate = false;
+    }
+
 }

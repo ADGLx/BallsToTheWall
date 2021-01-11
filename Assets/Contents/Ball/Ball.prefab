@@ -139,6 +139,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   m_instigator: {fileID: 0}
+  m_canPenetrate: 0
   m_isAttached: 0
   m_startingVelocity: -1
   m_isActive: 1

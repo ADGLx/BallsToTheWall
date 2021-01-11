@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8541002527946444622}
   - component: {fileID: 8541002527946444623}
-  - component: {fileID: 8355886450782968683}
   - component: {fileID: 2019783516}
+  - component: {fileID: 1996626042}
+  - component: {fileID: 1996626043}
   m_Layer: 0
   m_Name: blueNorm
   m_TagString: mysteryBrick
@@ -84,21 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8355886450782968683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8541002527946444722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326bc210c73cfc14aa16ef2eb9608bfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0
-  m_booster: {fileID: 0}
 --- !u!114 &2019783516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +101,54 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
+--- !u!60 &1996626042
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8541002527946444722}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.55, y: 0.31}
+    newSize: {x: 0.55, y: 0.31}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.08175853, y: 0.15498266}
+      - {x: -0.08642697, y: 0.1505279}
+      - {x: -0.27649078, y: 0.057732046}
+      - {x: -0.25263923, y: 0.020342257}
+      - {x: -0.1006497, y: -0.15052785}
+      - {x: -0.038367182, y: -0.12561862}
+      - {x: 0.03861673, y: -0.12673712}
+      - {x: 0.0932599, y: -0.15201855}
+      - {x: 0.19897345, y: -0.021954775}
+      - {x: 0.27649075, y: 0.05475056}
+      - {x: 0.1381671, y: 0.13263923}
+--- !u!114 &1996626043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8541002527946444722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326bc210c73cfc14aa16ef2eb9608bfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0
+  m_booster: {fileID: 0}

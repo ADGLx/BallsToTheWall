@@ -92,4 +92,19 @@ public class Padel : NetworkBehaviour
         this.transform.localScale = new Vector2(newV, 1);
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag != "Ball") return;
+
+        Ball ball = collision.gameObject.GetComponent<Ball>();
+
+        if (ball.m_instigator == this) return;
+
+        GetComponent<BallEffectsManager>().ReplaceBallEffect(ball,ball.m_instigator);
+
+
+        ball.m_instigator = this;
+    }
+
 }

@@ -21,7 +21,8 @@ public class BoundaryManager : NetworkBehaviour
         if (padel == null) return;
         //This turns off the padels on the client and the sv
         padel.m_isActive = false;
-        ball.m_isActive = false;
+        padel.gameObject.SetActive(false);
+        NetworkServer.Destroy(ball.gameObject);
 
         Debug.Log(m_defendingPadel.name + " lost");
     }

@@ -44,11 +44,4 @@ public class GameState : NetworkBehaviour
         sceneCamera.transform.RotateAround(Vector3.zero, Vector3.forward,
                 playerObject.transform.rotation.eulerAngles.z - sceneCamera.transform.rotation.eulerAngles.z);
     }
-
-    [Server]
-    public static void RestartGame()
-    {
-       //Do all the restarting manually
-    }
-
 }

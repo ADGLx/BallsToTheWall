@@ -33,9 +33,8 @@ public class Padel : NetworkBehaviour
 
     }
 
-    public override void OnStopClient()
+    public override void OnStopServer()
     {
-        if (!isServer) return;
         ServerCleanup();
     }
 
@@ -58,7 +57,7 @@ public class Padel : NetworkBehaviour
         m_intantiatedBall = null;
     }
 
-    [Command]
+    [Server]
     void SpawnBall()
     {
         m_intantiatedBall = Instantiate(m_ball);
@@ -82,7 +81,7 @@ public class Padel : NetworkBehaviour
     {
         if (activeCurrent) return;
 
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
 
         ServerCleanup();
     }

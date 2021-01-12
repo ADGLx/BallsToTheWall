@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4322593116096008706}
   - component: {fileID: 8382129295803630873}
   m_Layer: 0
-  m_Name: Debug_Canvas
+  m_Name: ControlMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,8 +190,10 @@ GameObject:
   - component: {fileID: 1407297726198663607}
   - component: {fileID: 2266323356591057110}
   - component: {fileID: 8728146348937404606}
+  - component: {fileID: 5841484150151345157}
+  - component: {fileID: 3677312005305208163}
   m_Layer: 0
-  m_Name: Button
+  m_Name: ButtonReloadScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,4 +299,46 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2266323356591057110}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1693214168118167120, guid: 58b1604a6dd322742a02888176f89a62, type: 3}
+        m_TargetAssemblyTypeName: GameControlSystem, Assembly-CSharp
+        m_MethodName: OnReloadSceneButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: OnReloadSceneButtonPressed
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5841484150151345157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9083120648904816844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2036c74b3b896ce4c91ad4659d603ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+--- !u!114 &3677312005305208163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9083120648904816844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  m_AssetId: 
+  hasSpawned: 0

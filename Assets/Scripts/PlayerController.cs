@@ -20,8 +20,6 @@ public class PlayerController : NetworkBehaviour
     public override void OnStartLocalPlayer()
     {
         base.OnStartLocalPlayer();
-        if (!isLocalPlayer)
-        { return; }
 
         GameState.AllignCameraWithPlayer(gameObject);
     }

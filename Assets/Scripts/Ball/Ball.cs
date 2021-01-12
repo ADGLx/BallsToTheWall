@@ -12,8 +12,6 @@ public class Ball : NetworkBehaviour
     public bool m_isAttached = false;
     [SyncVar]
     public float m_startingVelocity;
-    [SyncVar]
-    public bool m_isActive = true;
 
     public float m_velocitylimit = 5f;
     private Rigidbody2D rb;
@@ -29,10 +27,6 @@ public class Ball : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (!m_isActive) //should be active both in sv and client
-            this.gameObject.SetActive(false);
-
         if (!isServer) return;
 
         if (m_instigator == null) return;
@@ -57,10 +51,8 @@ public class Ball : NetworkBehaviour
 
     public void LimitBallVelocity()
     {
-            if(rb.velocity.magnitude > m_velocitylimit)
-            rb.AddForce(new Vector2(-rb.velocity.x, -rb.velocity.y)); //This kinda woks 
-  
-
+        if(rb.velocity.magnitude > m_velocitylimit)
+        rb.AddForce(new Vector2(-rb.velocity.x, -rb.velocity.y)); //This kinda woks 
     }
 }
 

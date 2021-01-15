@@ -15,10 +15,11 @@ public class BTWNetworkManager : NetworkManager
         if (startpoint.m_attachedBoudary == null) return;
 
         GameObject player = Instantiate(playerPrefab, startpoint.transform.position, startpoint.transform.rotation);
+        NetworkServer.AddPlayerForConnection(conn, player);
+
         startpoint.m_padelSocket = player.GetComponent<Padel>();
         startpoint.m_attachedBoudary.SetupDefendingPadel(player.GetComponent<Padel>());
 
-        NetworkServer.AddPlayerForConnection(conn, player);
         m_players.Add(player);
         SyncPlayersIndex();
     }

@@ -27,9 +27,12 @@ public class BallEffectsManager : NetworkBehaviour
 
     public void ReplaceBallEffect(Ball ball, Padel prevInstigator)
     {
+        Debug.Log("Triggerrrrrrrrrrrrrrrrrrrrrrrred");
         if(prevInstigator != null)
         {
-            foreach (var ballEffect in prevInstigator.GetComponent<BallEffectsManager>().m_ballEffects)
+            var previousBallEffects = prevInstigator.GetComponent<BallEffectsManager>().m_ballEffects;
+            previousBallEffects.Reverse();
+            foreach (var ballEffect in previousBallEffects)
             {
                 ballEffect.RevertBallEffect(ball);
             }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3183967596666847400
+--- !u!1 &6819101841842323270
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3183967596666847414}
-  - component: {fileID: -4489979281968580892}
+  - component: {fileID: 6819101841842323288}
+  - component: {fileID: 7106146960566784754}
   m_Layer: 0
-  m_Name: PenetrateBallBooster
+  m_Name: FastBallBooster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3183967596666847414
+--- !u!4 &6819101841842323288
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3183967596666847400}
+  m_GameObject: {fileID: 6819101841842323270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.025481, y: 0.8982581, z: -1.3950676}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,16 +31,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4489979281968580892
+--- !u!114 &7106146960566784754
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3183967596666847400}
+  m_GameObject: {fileID: 6819101841842323270}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa5042a188a55f44be553be3fb5bf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballEffect: {fileID: 8806795081536488337, guid: be2d6b5654926e24d8f306ea8d97b3c3, type: 3}
+  ballEffect: {fileID: 1477760899005390857, guid: ced25f8f0cf956248b79d1c5c1d7334f, type: 3}

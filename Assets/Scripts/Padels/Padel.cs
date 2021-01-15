@@ -100,7 +100,7 @@ public class Padel : NetworkBehaviour
 
         if (ball.m_instigator == this) return;
 
-        GetComponent<BallEffectsManager>().ReplaceBallEffect(ball,ball.m_instigator);
+        GetComponent<BallEffectsManager>().ReplaceBallEffect(ball, ball.m_instigator);
 
 
         ball.m_instigator = this;

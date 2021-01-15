@@ -42,7 +42,11 @@ public class BTWNetworkManager : NetworkManager
     {
         foreach (var player in m_players)
         {
-            if (player == null) continue;
+            if (player == null)
+            {
+                m_players.Remove(player);
+                continue;
+            } 
 
             var playerControlSystem = player.GetComponent<GameControlSystem>();
             if (playerControlSystem == null) continue;

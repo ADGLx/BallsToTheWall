@@ -23,7 +23,7 @@ public class GameControlSystem : NetworkBehaviour
 
     private void OnPlayerIndexChanged(int prevIndex, int newIndex)
     {
-        if (newIndex == 0)
+        if (m_instantiatedMenu == null)
         {
             CreateMenuOnClient();
         }

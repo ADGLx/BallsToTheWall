@@ -43,6 +43,7 @@ public class PlayerController : NetworkBehaviour
         horizontal = Input.GetAxis(Key.HORIZONTAL);
     }
 
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -59,5 +60,6 @@ public class PlayerController : NetworkBehaviour
         {
             gameObject.GetComponent<Padel>().FireBall();
         }
+
     }
 }
